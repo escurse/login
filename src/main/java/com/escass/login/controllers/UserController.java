@@ -14,4 +14,25 @@ public class UserController {
         modelAndView.setViewName("user/login");
         return modelAndView;
     }
+
+    @RequestMapping(value="/login", method = RequestMethod.POST)
+    public ModelAndView postLogin() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("user/login");
+        return modelAndView;
+    }
+
+    @RequestMapping(value="/register", method = RequestMethod.GET)
+    public ModelAndView getRegister() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("user/register");
+        return modelAndView;
+    }
+
+    @RequestMapping(value="/register", method = RequestMethod.POST)
+    public ModelAndView postRegister() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("user/register");
+        return modelAndView;
+    }
 }
