@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.escass.login.Entities.UserEntity">
+<mapper namespace="com.escass.login.mapper.UserMapper">
     <insert id="insertUser">
         INSERT INTO `basic`.`user`(`id`, `password`, `nickname`, `registerDate`)
         VALUES (#{id}, #{password}, #{nickname}, #{registerDate})
