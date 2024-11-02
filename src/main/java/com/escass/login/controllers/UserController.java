@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.time.LocalDateTime;
+
 @Controller
 @RequestMapping(value = "/user")
 @RequiredArgsConstructor
@@ -54,6 +56,7 @@ public class UserController {
 
     @RequestMapping(value = "/register", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public ModelAndView postRegister(UserEntity userEntity) {
+        userEntity.setRegisterDate(LocalDateTime.now());
         userMapper.insertUser(userEntity);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("redirect:/user/login");
