@@ -51,7 +51,7 @@ public class UserController {
     public ModelAndView postRegister(UserEntity userEntity) {
         userMapper.insertUser(userEntity);
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("user/login");
+        modelAndView.setViewName("redirect:/user/login");
         return modelAndView;
     }
 }
