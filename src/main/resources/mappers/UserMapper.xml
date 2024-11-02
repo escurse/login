@@ -8,9 +8,13 @@
         VALUES (#{id}, #{password}, #{nickname}, #{registerDate})
     </insert>
     <select id="selectUser">
-        SELECT *
+        SELECT `id`            AS `id`,
+               `password`      AS `password`,
+               `nickname`      AS `nickname`,
+               `register_date` AS `registerDate`
         FROM `basic`.`user`
         WHERE `id` = #{id}
           AND `password` = #{password}
+        LIMIT 1
     </select>
 </mapper>
