@@ -26,9 +26,14 @@ public class UserController {
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ModelAndView postLogin(UserMapper userMapper) {
+    public ModelAndView postLogin(HttpSession session) {
+        if (userService.userCheck(session)) {
+            ModelAndView modelAndView = new ModelAndView();
+            modelAndView.setViewName("redirect:/board");
+            return modelAndView;
+        }
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("user/login");
+        modelAndView.setViewName("redirect:/user/login");
         return modelAndView;
     }
 
@@ -36,7 +41,7 @@ public class UserController {
     public ModelAndView getLogout(HttpSession session) {
         session.invalidate();
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("user/login");
+        modelAndView.setViewName("redirect:/user/login");
         return modelAndView;
     }
 
