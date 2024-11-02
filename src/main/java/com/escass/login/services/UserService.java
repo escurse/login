@@ -9,16 +9,10 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 public class UserService {
-    private UserMapper userMapper;
-    private UserEntity userEntity;
+    private final UserMapper userMapper;
 
-    public boolean loginCheck(HttpSession session) {
-        Object loginData = session.getAttribute("login");
-        return loginData != null;
-    }
-
-    public boolean userCheck(HttpSession session) {
-        UserEntity user = userMapper.selectUser(userEntity.getId(), userEntity.getPassword());
+    public boolean userCheck(UserEntity user, HttpSession session) {
+        user = userMapper.selectUser(user.getId(), user.getPassword());
         session.setAttribute("login", true);
         session.setAttribute("user", user);
 

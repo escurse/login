@@ -26,10 +26,10 @@ public class UserController {
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ModelAndView postLogin(HttpSession session) {
-        if (userService.userCheck(session)) {
+    public ModelAndView postLogin(UserEntity user, HttpSession session) {
+        if (userService.userCheck(user, session)) {
             ModelAndView modelAndView = new ModelAndView();
-            modelAndView.setViewName("redirect:/board");
+            modelAndView.setViewName("redirect:/article/board");
             return modelAndView;
         }
         ModelAndView modelAndView = new ModelAndView();
