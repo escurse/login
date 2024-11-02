@@ -7,4 +7,10 @@
         INSERT INTO `basic`.`user`(`id`, `password`, `nickname`, `registerDate`)
         VALUES (#{id}, #{password}, #{nickname}, #{registerDate})
     </insert>
+    <select id="selectUser">
+        SELECT *
+        FROM `basic`.`user`
+        WHERE `id` = #{id}
+          AND `password` = #{password}
+    </select>
 </mapper>
