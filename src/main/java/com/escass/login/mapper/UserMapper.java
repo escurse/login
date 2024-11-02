@@ -5,7 +5,7 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface UserMapper {
-    UserEntity insertUser(UserEntity user);
+    int insertUser(UserEntity user);
 
     UserEntity selectUser(UserEntity user);
 }

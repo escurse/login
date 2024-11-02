@@ -51,7 +51,6 @@ public class UserController {
     public ModelAndView postRegister(UserEntity userEntity) {
         userMapper.insertUser(userEntity);
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("user", new UserEntity());
         modelAndView.setViewName("user/login");
         return modelAndView;
     }
