@@ -48,7 +48,8 @@ public class UserController {
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ModelAndView postRegister() {
+    public ModelAndView postRegister(UserEntity userEntity) {
+        userMapper.insertUser(userEntity);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("user", new UserEntity());
         modelAndView.setViewName("user/login");
