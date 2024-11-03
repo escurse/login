@@ -39,13 +39,13 @@ public class UserController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/logout", method = RequestMethod.GET, produces = MediaType.TEXT_HTML_VALUE)
-    public ModelAndView getLogout(HttpSession session) {
-        session.invalidate();
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("redirect:/user/login");
-        return modelAndView;
-    }
+//    @RequestMapping(value = "/logout", method = RequestMethod.GET, produces = MediaType.TEXT_HTML_VALUE)
+//    public ModelAndView getLogout(HttpSession session) {
+//        session.invalidate();
+//        ModelAndView modelAndView = new ModelAndView();
+//        modelAndView.setViewName("redirect:/user/login");
+//        return modelAndView;
+//    }
 
     @RequestMapping(value = "/register", method = RequestMethod.GET, produces = MediaType.TEXT_HTML_VALUE)
     public ModelAndView getRegister() {
